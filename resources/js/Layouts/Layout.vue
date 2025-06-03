@@ -2,14 +2,14 @@
 
 <template>
     <div>
-        <header class="bg-gray-800 text-white p-4">
-            <nav class="flex justify-between items-center max-w-7xl mx-auto">
+        <header>
+            <nav>
                 <div class="space-x-6">
-                    <Link :href="route('home')" class="hover:text-gray-300"
-                        >Home</Link
-                    >
-                    <Link :href="route('about')" class="hover:text-gray-300"
-                        >About</Link
+                    <Link :href="route('home')" class="nav-link">Home</Link>
+                </div>
+                <div class="space-x-6">
+                    <Link :href="route('register')" class="nav-link"
+                        >Register</Link
                     >
                 </div>
             </nav>
