@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import { route } from '../../../vendor/tightenco/ziggy/src/js'
+</script>
 
 <template>
     <div>
@@ -6,8 +8,12 @@
             <nav class="flex justify-between items-center max-w-7xl mx-auto">
                 <h1>{{ $page.props.auth.user }}</h1>
                 <div class="space-x-6">
-                    <Link href="/" class="hover:text-gray-300">Home</Link>
-                    <Link href="/about" class="hover:text-gray-300">About</Link>
+                    <Link :href="route('home')" class="hover:text-gray-300"
+                        >Home</Link
+                    >
+                    <Link :href="route('about')" class="hover:text-gray-300"
+                        >About</Link
+                    >
                 </div>
             </nav>
         </header>
