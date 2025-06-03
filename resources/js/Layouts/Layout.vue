@@ -4,6 +4,7 @@
     <div>
         <header class="bg-gray-800 text-white p-4">
             <nav class="flex justify-between items-center max-w-7xl mx-auto">
+                <h1>{{ $page.props.auth.user }}</h1>
                 <div class="space-x-6">
                     <Link href="/" class="hover:text-gray-300">Home</Link>
                     <Link href="/about" class="hover:text-gray-300">About</Link>
