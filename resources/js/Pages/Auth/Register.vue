@@ -1,7 +1,7 @@
 <script setup>
-import { reactive } from 'vue'
+import { useForm } from '@inertiajs/vue3'
 
-const form = reactive({
+const form = useForm({
     name: null,
     email: null,
     password: null,
@@ -9,7 +9,9 @@ const form = reactive({
 })
 
 const submit = () => {
-    console.log(form)
+    form.post(route('register'), {
+        onError: () => form.reset('password', 'password_confirmation')
+    })
 }
 </script>
 
@@ -20,22 +22,29 @@ const submit = () => {
     <div class="w-2/4 mx-auto">
         <form @submit.prevent="submit">
             <div class="mb-6">
-                <label>Name</label>
-                <input type="text" v-model="form.name" />
+                <label for="name">Name</label>
+                <input type="text" v-model="form.name" id="name" />
+                <small class="text-red-500">{{ form.errors.name }}</small>
             </div>
             <div class="mb-6">
-                <label>Email</label>
-                <input type="text" v-model="form.email" />
-            </div>
-
-            <div class="mb-6">
-                <label>Password</label>
-                <input type="password" v-model="form.password" />
+                <label for="email">Email</label>
+                <input type="text" v-model="form.email" id="email" />
+                <small class="text-red-500">{{ form.errors.email }}</small>
             </div>
 
             <div class="mb-6">
-                <label>Confirm Password</label>
-                <input type="password" v-model="form.password_confirmation" />
+                <label for="password">Password</label>
+                <input type="password" v-model="form.password" id="password" />
+                <small class="text-red-500">{{ form.errors.password }}</small>
+            </div>
+
+            <div class="mb-6">
+                <label for="password_confirm">Confirm Password</label>
+                <input
+                    type="password"
+                    v-model="form.password_confirmation"
+                    id="password_confirm"
+                />
             </div>
 
             <div>
