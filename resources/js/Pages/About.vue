@@ -1,12 +1,14 @@
-<template>
-    <div>
-        <h1>About Us</h1>
-        <p>Welcome to the About page, {{ user }}!</p>
-    </div>
-</template>
-
 <script setup>
+import { Head } from '@inertiajs/vue3'
 defineProps({
     user: String
 })
 </script>
+
+<template>
+    <Head title="About" />
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4">About Us</h1>
+        <p>Welcome to the About page, {{ user }}!</p>
+    </div>
+</template>
