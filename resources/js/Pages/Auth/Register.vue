@@ -1,5 +1,5 @@
 <script setup>
-import { useForm } from '@inertiajs/vue3'
+import { Link, useForm } from '@inertiajs/vue3'
 import TextInput from '../Components/TextInput.vue'
 
 const form = useForm({
@@ -49,7 +49,8 @@ const submit = () => {
 
             <div>
                 <p class="text-slate-600 mb-2">
-                    Already a user? <a href="#" class="text-link">Login</a>
+                    Already an user?
+                    <Link :href="route('login')" class="text-link">Login</Link>
                 </p>
                 <button class="primary-btn">Register</button>
             </div>
