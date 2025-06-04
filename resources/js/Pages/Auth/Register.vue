@@ -1,5 +1,6 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3'
+import TextInput from '../Components/TextInput.vue'
 
 const form = useForm({
     name: null,
@@ -21,31 +22,30 @@ const submit = () => {
     <h1 class="title">Register a new account</h1>
     <div class="w-2/4 mx-auto">
         <form @submit.prevent="submit">
-            <div class="mb-6">
-                <label for="name">Name</label>
-                <input type="text" v-model="form.name" id="name" />
-                <small class="text-red-500">{{ form.errors.name }}</small>
-            </div>
-            <div class="mb-6">
-                <label for="email">Email</label>
-                <input type="text" v-model="form.email" id="email" />
-                <small class="text-red-500">{{ form.errors.email }}</small>
-            </div>
+            <TextInput
+                name="name"
+                v-model="form.name"
+                :message="form.errors.name"
+            />
 
-            <div class="mb-6">
-                <label for="password">Password</label>
-                <input type="password" v-model="form.password" id="password" />
-                <small class="text-red-500">{{ form.errors.password }}</small>
-            </div>
+            <TextInput
+                name="email"
+                v-model="form.email"
+                :message="form.errors.email"
+            />
 
-            <div class="mb-6">
-                <label for="password_confirm">Confirm Password</label>
-                <input
-                    type="password"
-                    v-model="form.password_confirmation"
-                    id="password_confirm"
-                />
-            </div>
+            <TextInput
+                name="password"
+                type="password"
+                v-model="form.password"
+                :message="form.errors.password"
+            />
+
+            <TextInput
+                name="confirm password"
+                type="password"
+                v-model="form.password_confirmation"
+            />
 
             <div>
                 <p class="text-slate-600 mb-2">
